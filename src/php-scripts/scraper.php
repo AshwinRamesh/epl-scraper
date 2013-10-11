@@ -20,5 +20,30 @@ function get_json_by_id($id) {
 	return $data;
 }
 
-var_dump(get_json_by_id(-1));
+
+/* Store all player data in a given file */
+function get_all_data($filename) {
+	$i = 1; // index of api
+	$new_player = True; // check if returned item is infact in correct format
+	$f = fopen($filename, "w+");
+	fwrite($f, "[\n");
+	while ($new_player == True) {
+		$data = get_json_by_id($i);
+		if ($data == False) {
+			$new_plater = False;
+			break;
+		}
+		fwrite($f, json_encode($data));
+		fwrite($f, ",\n");
+		echo "Processed id $i\n";
+		$i = $i + 1;
+	}
+	fwrite($f, "{'end':true}]\n");
+	fclose($f);
+	echo("Collection Complete.");
+}
+
+
+get_all_data("data.json");
+
 ?>
