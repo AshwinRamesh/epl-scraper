@@ -1,0 +1,381 @@
+Div,Date,HomeTeam,AwayTeam
+E0,17/08/13,Arsenal,Aston Villa
+E0,17/08/13,Chelsea,Hull City
+E0,17/08/13,Crystal Palace,Tottenham Hotspur
+E0,17/08/13,Liverpool,Stoke City
+E0,17/08/13,Manchester City,Newcastle United
+E0,17/08/13,Norwich City,Everton
+E0,17/08/13,Sunderland,Fulham
+E0,17/08/13,Swansea City,Manchester United
+E0,17/08/13,West Bromwich Albion,Southampton
+E0,17/08/13,West Ham United,Cardiff City
+E0,24/08/13,Aston Villa,Liverpool
+E0,24/08/13,Cardiff City,Manchester City
+E0,24/08/13,Everton,West Bromwich Albion
+E0,24/08/13,Fulham,Arsenal
+E0,24/08/13,Hull City,Norwich City
+E0,24/08/13,Manchester United,Chelsea
+E0,24/08/13,Newcastle United,West Ham United
+E0,24/08/13,Southampton,Sunderland
+E0,24/08/13,Stoke City,Crystal Palace
+E0,24/08/13,Tottenham Hotspur,Swansea City
+E0,31/08/13,Arsenal,Tottenham Hotspur
+E0,31/08/13,Cardiff City,Everton
+E0,31/08/13,Chelsea,Aston Villa
+E0,31/08/13,Crystal Palace,Sunderland
+E0,31/08/13,Liverpool,Manchester United
+E0,31/08/13,Manchester City,Hull City
+E0,31/08/13,Newcastle United,Fulham
+E0,31/08/13,Norwich City,Southampton
+E0,31/08/13,West Bromwich Albion,Swansea City
+E0,31/08/13,West Ham United,Stoke City
+E0,14/09/13,Aston Villa,Newcastle United
+E0,14/09/13,Everton,Chelsea
+E0,14/09/13,Fulham,West Bromwich Albion
+E0,14/09/13,Hull City,Cardiff City
+E0,14/09/13,Manchester United,Crystal Palace
+E0,14/09/13,Southampton,West Ham United
+E0,14/09/13,Stoke City,Manchester City
+E0,14/09/13,Sunderland,Arsenal
+E0,14/09/13,Swansea City,Liverpool
+E0,14/09/13,Tottenham Hotspur,Norwich City
+E0,21/09/13,Arsenal,Stoke City
+E0,21/09/13,Cardiff City,Tottenham Hotspur
+E0,21/09/13,Chelsea,Fulham
+E0,21/09/13,Crystal Palace,Swansea City
+E0,21/09/13,Liverpool,Southampton
+E0,21/09/13,Manchester City,Manchester United
+E0,21/09/13,Newcastle United,Hull City
+E0,21/09/13,Norwich City,Aston Villa
+E0,21/09/13,West Bromwich Albion,Sunderland
+E0,21/09/13,West Ham United,Everton
+E0,28/09/13,Aston Villa,Manchester City
+E0,28/09/13,Everton,Newcastle United
+E0,28/09/13,Fulham,Cardiff City
+E0,28/09/13,Hull City,West Ham United
+E0,28/09/13,Manchester United,West Bromwich Albion
+E0,28/09/13,Southampton,Crystal Palace
+E0,28/09/13,Stoke City,Norwich City
+E0,28/09/13,Sunderland,Liverpool
+E0,28/09/13,Swansea City,Arsenal
+E0,28/09/13,Tottenham Hotspur,Chelsea
+E0,05/10/13,Cardiff City,Newcastle United
+E0,05/10/13,Fulham,Stoke City
+E0,05/10/13,Hull City,Aston Villa
+E0,05/10/13,Liverpool,Crystal Palace
+E0,05/10/13,Manchester City,Everton
+E0,05/10/13,Norwich City,Chelsea
+E0,05/10/13,Southampton,Swansea City
+E0,05/10/13,Sunderland,Manchester United
+E0,05/10/13,Tottenham Hotspur,West Ham United
+E0,05/10/13,West Bromwich Albion,Arsenal
+E0,19/10/13,Arsenal,Norwich City
+E0,19/10/13,Aston Villa,Tottenham Hotspur
+E0,19/10/13,Chelsea,Cardiff City
+E0,19/10/13,Crystal Palace,Fulham
+E0,19/10/13,Everton,Hull City
+E0,19/10/13,Manchester United,Southampton
+E0,19/10/13,Newcastle United,Liverpool
+E0,19/10/13,Stoke City,West Bromwich Albion
+E0,19/10/13,Swansea City,Sunderland
+E0,19/10/13,West Ham United,Manchester City
+E0,26/10/13,Aston Villa,Everton
+E0,26/10/13,Chelsea,Manchester City
+E0,26/10/13,Crystal Palace,Arsenal
+E0,26/10/13,Liverpool,West Bromwich Albion
+E0,26/10/13,Manchester United,Stoke City
+E0,26/10/13,Norwich City,Cardiff City
+E0,26/10/13,Southampton,Fulham
+E0,26/10/13,Sunderland,Newcastle United
+E0,26/10/13,Swansea City,West Ham United
+E0,26/10/13,Tottenham Hotspur,Hull City
+E0,02/11/13,Arsenal,Liverpool
+E0,02/11/13,Cardiff City,Swansea City
+E0,02/11/13,Everton,Tottenham Hotspur
+E0,02/11/13,Fulham,Manchester United
+E0,02/11/13,Hull City,Sunderland
+E0,02/11/13,Manchester City,Norwich City
+E0,02/11/13,Newcastle United,Chelsea
+E0,02/11/13,Stoke City,Southampton
+E0,02/11/13,West Bromwich Albion,Crystal Palace
+E0,02/11/13,West Ham United,Aston Villa
+E0,09/11/13,Aston Villa,Cardiff City
+E0,09/11/13,Chelsea,West Bromwich Albion
+E0,09/11/13,Crystal Palace,Everton
+E0,09/11/13,Liverpool,Fulham
+E0,09/11/13,Manchester United,Arsenal
+E0,09/11/13,Norwich City,West Ham United
+E0,09/11/13,Southampton,Hull City
+E0,09/11/13,Sunderland,Manchester City
+E0,09/11/13,Swansea City,Stoke City
+E0,09/11/13,Tottenham Hotspur,Newcastle United
+E0,23/11/13,Arsenal,Southampton
+E0,23/11/13,Cardiff City,Manchester United
+E0,23/11/13,Everton,Liverpool
+E0,23/11/13,Fulham,Swansea City
+E0,23/11/13,Hull City,Crystal Palace
+E0,23/11/13,Manchester City,Tottenham Hotspur
+E0,23/11/13,Newcastle United,Norwich City
+E0,23/11/13,Stoke City,Sunderland
+E0,23/11/13,West Bromwich Albion,Aston Villa
+E0,23/11/13,West Ham United,Chelsea
+E0,30/11/13,Aston Villa,Sunderland
+E0,30/11/13,Cardiff City,Arsenal
+E0,30/11/13,Chelsea,Southampton
+E0,30/11/13,Everton,Stoke City
+E0,30/11/13,Hull City,Liverpool
+E0,30/11/13,Manchester City,Swansea City
+E0,30/11/13,Newcastle United,West Bromwich Albion
+E0,30/11/13,Norwich City,Crystal Palace
+E0,30/11/13,Tottenham Hotspur,Manchester United
+E0,30/11/13,West Ham United,Fulham
+E0,03/12/13,Arsenal,Hull City
+E0,03/12/13,Crystal Palace,West Ham United
+E0,03/12/13,Liverpool,Norwich City
+E0,03/12/13,Manchester United,Everton
+E0,03/12/13,Southampton,Aston Villa
+E0,03/12/13,Stoke City,Cardiff City
+E0,03/12/13,Sunderland,Chelsea
+E0,03/12/13,Swansea City,Newcastle United
+E0,03/12/13,West Bromwich Albion,Manchester City
+E0,04/12/13,Fulham,Tottenham Hotspur
+E0,07/12/13,Arsenal,Everton
+E0,07/12/13,Crystal Palace,Cardiff City
+E0,07/12/13,Fulham,Aston Villa
+E0,07/12/13,Liverpool,West Ham United
+E0,07/12/13,Manchester United,Newcastle United
+E0,07/12/13,Southampton,Manchester City
+E0,07/12/13,Stoke City,Chelsea
+E0,07/12/13,Sunderland,Tottenham Hotspur
+E0,07/12/13,Swansea City,Hull City
+E0,07/12/13,West Bromwich Albion,Norwich City
+E0,14/12/13,Aston Villa,Manchester United
+E0,14/12/13,Cardiff City,West Bromwich Albion
+E0,14/12/13,Chelsea,Crystal Palace
+E0,14/12/13,Everton,Fulham
+E0,14/12/13,Hull City,Stoke City
+E0,14/12/13,Manchester City,Arsenal
+E0,14/12/13,Newcastle United,Southampton
+E0,14/12/13,Norwich City,Swansea City
+E0,14/12/13,Tottenham Hotspur,Liverpool
+E0,14/12/13,West Ham United,Sunderland
+E0,21/12/13,Arsenal,Chelsea
+E0,21/12/13,Crystal Palace,Newcastle United
+E0,21/12/13,Fulham,Manchester City
+E0,21/12/13,Liverpool,Cardiff City
+E0,21/12/13,Manchester United,West Ham United
+E0,21/12/13,Southampton,Tottenham Hotspur
+E0,21/12/13,Stoke City,Aston Villa
+E0,21/12/13,Sunderland,Norwich City
+E0,21/12/13,Swansea City,Everton
+E0,21/12/13,West Bromwich Albion,Hull City
+E0,26/12/13,Aston Villa,Crystal Palace
+E0,26/12/13,Cardiff City,Southampton
+E0,26/12/13,Chelsea,Swansea City
+E0,26/12/13,Everton,Sunderland
+E0,26/12/13,Hull City,Manchester United
+E0,26/12/13,Manchester City,Liverpool
+E0,26/12/13,Newcastle United,Stoke City
+E0,26/12/13,Norwich City,Fulham
+E0,26/12/13,Tottenham Hotspur,West Bromwich Albion
+E0,26/12/13,West Ham United,Arsenal
+E0,28/12/13,Aston Villa,Swansea City
+E0,28/12/13,Cardiff City,Sunderland
+E0,28/12/13,Chelsea,Liverpool
+E0,28/12/13,Everton,Southampton
+E0,28/12/13,Hull City,Fulham
+E0,28/12/13,Manchester City,Crystal Palace
+E0,28/12/13,Newcastle United,Arsenal
+E0,28/12/13,Norwich City,Manchester United
+E0,28/12/13,Tottenham Hotspur,Stoke City
+E0,28/12/13,West Ham United,West Bromwich Albion
+E0,01/01/14,Arsenal,Cardiff City
+E0,01/01/14,Crystal Palace,Norwich City
+E0,01/01/14,Fulham,West Ham United
+E0,01/01/14,Liverpool,Hull City
+E0,01/01/14,Manchester United,Tottenham Hotspur
+E0,01/01/14,Southampton,Chelsea
+E0,01/01/14,Stoke City,Everton
+E0,01/01/14,Sunderland,Aston Villa
+E0,01/01/14,Swansea City,Manchester City
+E0,01/01/14,West Bromwich Albion,Newcastle United
+E0,11/01/14,Aston Villa,Arsenal
+E0,11/01/14,Cardiff City,West Ham United
+E0,11/01/14,Everton,Norwich City
+E0,11/01/14,Fulham,Sunderland
+E0,11/01/14,Hull City,Chelsea
+E0,11/01/14,Manchester United,Swansea City
+E0,11/01/14,Newcastle United,Manchester City
+E0,11/01/14,Southampton,West Bromwich Albion
+E0,11/01/14,Stoke City,Liverpool
+E0,11/01/14,Tottenham Hotspur,Crystal Palace
+E0,18/01/14,Arsenal,Fulham
+E0,18/01/14,Chelsea,Manchester United
+E0,18/01/14,Crystal Palace,Stoke City
+E0,18/01/14,Liverpool,Aston Villa
+E0,18/01/14,Manchester City,Cardiff City
+E0,18/01/14,Norwich City,Hull City
+E0,18/01/14,Sunderland,Southampton
+E0,18/01/14,Swansea City,Tottenham Hotspur
+E0,18/01/14,West Bromwich Albion,Everton
+E0,18/01/14,West Ham United,Newcastle United
+E0,28/01/14,Aston Villa,West Bromwich Albion
+E0,28/01/14,Crystal Palace,Hull City
+E0,28/01/14,Liverpool,Everton
+E0,28/01/14,Manchester United,Cardiff City
+E0,28/01/14,Norwich City,Newcastle United
+E0,28/01/14,Southampton,Arsenal
+E0,28/01/14,Sunderland,Stoke City
+E0,28/01/14,Swansea City,Fulham
+E0,29/01/14,Chelsea,West Ham United
+E0,29/01/14,Tottenham Hotspur,Manchester City
+E0,01/02/14,Arsenal,Crystal Palace
+E0,01/02/14,Cardiff City,Norwich City
+E0,01/02/14,Everton,Aston Villa
+E0,01/02/14,Fulham,Southampton
+E0,01/02/14,Hull City,Tottenham Hotspur
+E0,01/02/14,Manchester City,Chelsea
+E0,01/02/14,Newcastle United,Sunderland
+E0,01/02/14,Stoke City,Manchester United
+E0,01/02/14,West Bromwich Albion,Liverpool
+E0,01/02/14,West Ham United,Swansea City
+E0,08/02/14,Aston Villa,West Ham United
+E0,08/02/14,Chelsea,Newcastle United
+E0,08/02/14,Crystal Palace,West Bromwich Albion
+E0,08/02/14,Liverpool,Arsenal
+E0,08/02/14,Manchester United,Fulham
+E0,08/02/14,Norwich City,Manchester City
+E0,08/02/14,Southampton,Stoke City
+E0,08/02/14,Sunderland,Hull City
+E0,08/02/14,Swansea City,Cardiff City
+E0,08/02/14,Tottenham Hotspur,Everton
+E0,11/02/14,Arsenal,Manchester United
+E0,11/02/14,Cardiff City,Aston Villa
+E0,11/02/14,Hull City,Southampton
+E0,11/02/14,Stoke City,Swansea City
+E0,11/02/14,West Bromwich Albion,Chelsea
+E0,11/02/14,West Ham United,Norwich City
+E0,12/02/14,Everton,Crystal Palace
+E0,12/02/14,Fulham,Liverpool
+E0,12/02/14,Manchester City,Sunderland
+E0,12/02/14,Newcastle United,Tottenham Hotspur
+E0,22/02/14,Arsenal,Sunderland
+E0,22/02/14,Cardiff City,Hull City
+E0,22/02/14,Chelsea,Everton
+E0,22/02/14,Crystal Palace,Manchester United
+E0,22/02/14,Liverpool,Swansea City
+E0,22/02/14,Manchester City,Stoke City
+E0,22/02/14,Newcastle United,Aston Villa
+E0,22/02/14,Norwich City,Tottenham Hotspur
+E0,22/02/14,West Bromwich Albion,Fulham
+E0,22/02/14,West Ham United,Southampton
+E0,01/03/14,Aston Villa,Norwich City
+E0,01/03/14,Everton,West Ham United
+E0,01/03/14,Fulham,Chelsea
+E0,01/03/14,Hull City,Newcastle United
+E0,01/03/14,Manchester United,Manchester City
+E0,01/03/14,Southampton,Liverpool
+E0,01/03/14,Stoke City,Arsenal
+E0,01/03/14,Sunderland,West Bromwich Albion
+E0,01/03/14,Swansea City,Crystal Palace
+E0,01/03/14,Tottenham Hotspur,Cardiff City
+E0,08/03/14,Arsenal,Swansea City
+E0,08/03/14,Cardiff City,Fulham
+E0,08/03/14,Chelsea,Tottenham Hotspur
+E0,08/03/14,Crystal Palace,Southampton
+E0,08/03/14,Liverpool,Sunderland
+E0,08/03/14,Manchester City,Aston Villa
+E0,08/03/14,Newcastle United,Everton
+E0,08/03/14,Norwich City,Stoke City
+E0,08/03/14,West Bromwich Albion,Manchester United
+E0,08/03/14,West Ham United,Hull City
+E0,15/03/14,Aston Villa,Chelsea
+E0,15/03/14,Everton,Cardiff City
+E0,15/03/14,Fulham,Newcastle United
+E0,15/03/14,Hull City,Manchester City
+E0,15/03/14,Manchester United,Liverpool
+E0,15/03/14,Southampton,Norwich City
+E0,15/03/14,Stoke City,West Ham United
+E0,15/03/14,Sunderland,Crystal Palace
+E0,15/03/14,Swansea City,West Bromwich Albion
+E0,15/03/14,Tottenham Hotspur,Arsenal
+E0,22/03/14,Aston Villa,Stoke City
+E0,22/03/14,Cardiff City,Liverpool
+E0,22/03/14,Chelsea,Arsenal
+E0,22/03/14,Everton,Swansea City
+E0,22/03/14,Hull City,West Bromwich Albion
+E0,22/03/14,Manchester City,Fulham
+E0,22/03/14,Newcastle United,Crystal Palace
+E0,22/03/14,Norwich City,Sunderland
+E0,22/03/14,Tottenham Hotspur,Southampton
+E0,22/03/14,West Ham United,Manchester United
+E0,29/03/14,Arsenal,Manchester City
+E0,29/03/14,Crystal Palace,Chelsea
+E0,29/03/14,Fulham,Everton
+E0,29/03/14,Liverpool,Tottenham Hotspur
+E0,29/03/14,Manchester United,Aston Villa
+E0,29/03/14,Southampton,Newcastle United
+E0,29/03/14,Stoke City,Hull City
+E0,29/03/14,Sunderland,West Ham United
+E0,29/03/14,Swansea City,Norwich City
+E0,29/03/14,West Bromwich Albion,Cardiff City
+E0,05/04/14,Aston Villa,Fulham
+E0,05/04/14,Cardiff City,Crystal Palace
+E0,05/04/14,Chelsea,Stoke City
+E0,05/04/14,Everton,Arsenal
+E0,05/04/14,Hull City,Swansea City
+E0,05/04/14,Manchester City,Southampton
+E0,05/04/14,Newcastle United,Manchester United
+E0,05/04/14,Norwich City,West Bromwich Albion
+E0,05/04/14,Tottenham Hotspur,Sunderland
+E0,05/04/14,West Ham United,Liverpool
+E0,12/04/14,Arsenal,West Ham United
+E0,12/04/14,Crystal Palace,Aston Villa
+E0,12/04/14,Fulham,Norwich City
+E0,12/04/14,Liverpool,Manchester City
+E0,12/04/14,Manchester United,Hull City
+E0,12/04/14,Southampton,Cardiff City
+E0,12/04/14,Stoke City,Newcastle United
+E0,12/04/14,Sunderland,Everton
+E0,12/04/14,Swansea City,Chelsea
+E0,12/04/14,West Bromwich Albion,Tottenham Hotspur
+E0,19/04/14,Aston Villa,Southampton
+E0,19/04/14,Cardiff City,Stoke City
+E0,19/04/14,Chelsea,Sunderland
+E0,19/04/14,Everton,Manchester United
+E0,19/04/14,Hull City,Arsenal
+E0,19/04/14,Manchester City,West Bromwich Albion
+E0,19/04/14,Newcastle United,Swansea City
+E0,19/04/14,Norwich City,Liverpool
+E0,19/04/14,Tottenham Hotspur,Fulham
+E0,19/04/14,West Ham United,Crystal Palace
+E0,26/04/14,Arsenal,Newcastle United
+E0,26/04/14,Crystal Palace,Manchester City
+E0,26/04/14,Fulham,Hull City
+E0,26/04/14,Liverpool,Chelsea
+E0,26/04/14,Manchester United,Norwich City
+E0,26/04/14,Southampton,Everton
+E0,26/04/14,Stoke City,Tottenham Hotspur
+E0,26/04/14,Sunderland,Cardiff City
+E0,26/04/14,Swansea City,Aston Villa
+E0,26/04/14,West Bromwich Albion,West Ham United
+E0,03/05/14,Arsenal,West Bromwich Albion
+E0,03/05/14,Aston Villa,Hull City
+E0,03/05/14,Chelsea,Norwich City
+E0,03/05/14,Crystal Palace,Liverpool
+E0,03/05/14,Everton,Manchester City
+E0,03/05/14,Manchester United,Sunderland
+E0,03/05/14,Newcastle United,Cardiff City
+E0,03/05/14,Stoke City,Fulham
+E0,03/05/14,Swansea City,Southampton
+E0,03/05/14,West Ham United,Tottenham Hotspur
+E0,11/05/14,Cardiff City,Chelsea
+E0,11/05/14,Fulham,Crystal Palace
+E0,11/05/14,Hull City,Everton
+E0,11/05/14,Liverpool,Newcastle United
+E0,11/05/14,Manchester City,West Ham United
+E0,11/05/14,Norwich City,Arsenal
+E0,11/05/14,Southampton,Manchester United
+E0,11/05/14,Sunderland,Swansea City
+E0,11/05/14,Tottenham Hotspur,Aston Villa
+E0,11/05/14,West Bromwich Albion,Stoke City
