@@ -1,8 +1,24 @@
+DROP TABLE IF EXISTS player_fixture;
+DROP TABLE IF EXISTS fixture;
+DROP TABLE IF EXISTS player_yearly_statistics;
+DROP TABLE IF EXISTS player_point_details;
+DROP TABLE IF EXISTS player_status;
 DROP TABLE IF EXISTS player;
 DROP TABLE IF EXISTS club;
-DROP TABLE IF EXISTS fixture;
-DROP TABLE IF EXISTS player_fixture;
-DROP TABLE IF EXISTS player_yearly_statistics;
+DROP TABLE IF EXISTS player_type;
+
+CREATE TABLE player_type (
+  id INT NOT NULL,
+  type VARCHAR(20),
+  PRIMARY KEY (id)
+);
+
+
+CREATE TABLE player_status (
+  id INT NOT NULL,
+  status VARCHAR(20),
+  PRIMARY KEY (id)
+);
 
 CREATE TABLE club (
   id INT NOT NULL AUTO_INCREMENT,
@@ -29,23 +45,23 @@ CREATE TABLE club (
 
 CREATE TABLE player (
   id INT NOT NULL AUTO_INCREMENT,
-  fpl_id INT NOT NULL DEFAULT -,
-  fpl_code INT NOT NULL DEFAULT -,
+  fpl_id INT NOT NULL DEFAULT 0,
+  fpl_code INT NOT NULL DEFAULT 0,
   club_id INT NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
-  squad_number INT(3) DEFAULT -,
+  squad_number INT(3) DEFAULT 0,
   position INT(1),
   status INT(1),
   dreamteam INT(1), # Boolean ,
   selected_percentage DECIMAL(4,1),
+  original_cost DECIMAL (3,1),
   current_cost DECIMAL (3,1),
   max_cost DECIMAL (3,1),
   min_cost DECIMAL (3,1),
-
-  FOREIGN KEY (club_id) REFERENCES club(id),
-  FOREIGN KEY (position) REFERENCES player_type(id)
-
+  PRIMARY KEY (id),
+  FOREIGN KEY (club_id) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (position) REFERENCES player_type(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -54,10 +70,11 @@ CREATE TABLE fixture (
   round INT NOT NULL,
   home_team INT NOT NULL,
   away_team INT NOT NULL,
-  home_goals INT NOT NULL DEFAULT ,
-  away_goals INT NOT NULL DEFAULT ,
-  FOREIGN KEY (home_team) REFERENCES club(id),
-  FOREIGN KEY (away_team) REFERENCES club(id)
+  home_goals INT NOT NULL DEFAULT 0,
+  away_goals INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id),
+  FOREIGN KEY (home_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (away_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_fixture (
@@ -72,47 +89,33 @@ CREATE TABLE player_fixture (
   penalties_saved INT DEFAULT 0,
   penalties_missed INT DEFAULT 0,
   yellow_card INT DEFAULT 0,
-  red_Card INT DEFAULT 0,
+  red_ard INT DEFAULT 0,
   saves INT DEFAULT 0,
   bonus INT DEFAULT 0,
   esp INT DEFAULT 0,
   bps INT DEFAULT 0,
   net_transfers INT DEFAULT 0,
-  value INT 0,
-  points INT 0,
+  cost_value INT DEFAULT 0,
+  points INT DEFAULT 0,
 
   PRIMARY KEY (player_id, fixture_id),
-  FOREIGN KEY (player_id) REFERENCES player(id),
-  FOREIGN KEY (fixture_id) REFERENCES fixture(id)
+  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (fixture_id) REFERENCES fixture(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_yearly_statistics (
   player_id INT NOT NULL,
-  FOREIGN KEY (player_id) REFERENCES player(id)
+  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_point_details (
   id INT NOT NULL,
-  last_fixture_cost DECIMAL(,) DEFAULT ,
-  transfers_out INT() DEFAULT ,
-  last_fixture_transfers_out INT() DEFAULT ,
+  last_fixture_cost DECIMAL(3,1) DEFAULT 0,
+  transfers_out INT DEFAULT 0,
+  last_fixture_transfers_out INT DEFAULT 0,
 
-  FOREIGN KEY (id) REFERENCES player(id)
+  FOREIGN KEY (id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
-CREATE TABLE player_type (
-  id INT NOT NULL,
-  type VARCHAR()
-);
-
-
-CREATE TABLE player_status (
-  id INT NOT NULL,
-  status VARCHAR()
-);
-
-
 
 INSERT INTO player_type (id, type) VALUES (1, "Goalkeeper");
 INSERT INTO player_type (id, type) VALUES (2, "Defender");
@@ -122,6 +125,7 @@ INSERT INTO player_type (id, type) VALUES (4, "Striker");
 INSERT INTO player_status (id, status) VALUES (1, "Possible"); # d
 INSERT INTO player_status (id, status) VALUES (2, "Doubtful"); # d
 INSERT INTO player_status (id, status) VALUES (3, "Unlikely"); # n
+INSERT INTO player_status (id, status) VALUES (4, "Available"); #a
 
 INSERT INTO club (name) VALUES ("Arsenal");
 INSERT INTO club (name) VALUES ("Liverpool");
@@ -130,7 +134,7 @@ INSERT INTO club (name) VALUES ("Southampton");
 INSERT INTO club (name) VALUES ("Man City");
 INSERT INTO club (name) VALUES ("Tottenham");
 INSERT INTO club (name) VALUES ("Everton");
-INSERT INTO club (name) VALUES ("Hull");
+INSERT INTO club (name) VALUES ("Hull City");
 INSERT INTO club (name) VALUES ("Man Utd");
 INSERT INTO club (name) VALUES ("Aston Villa");
 INSERT INTO club (name) VALUES ("Newcastle");
