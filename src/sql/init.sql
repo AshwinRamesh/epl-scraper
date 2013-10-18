@@ -23,6 +23,7 @@ CREATE TABLE player_status (
 CREATE TABLE club (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
+  short_name VARCHAR(5) NOT NULL,
   points INT(3) NOT NULL DEFAULT 0,
   wins INT(2) NOT NULL DEFAULT 0,
   losses INT(2) NOT NULL DEFAULT 0,
@@ -67,12 +68,13 @@ CREATE TABLE player (
 
 CREATE TABLE fixture (
   id INT NOT NULL AUTO_INCREMENT,
-  round INT NOT NULL,
+  gameweek INT NOT NULL,
+  kickoff_time DATETIME,
   home_team INT NOT NULL,
   away_team INT NOT NULL,
   home_goals INT NOT NULL DEFAULT 0,
   away_goals INT NOT NULL DEFAULT 0,
-  PRIMARY KEY (id),
+  PRIMARY KEY (id, home_team, away_team),
   FOREIGN KEY (home_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (away_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -127,23 +129,23 @@ INSERT INTO player_status (id, status) VALUES (2, "Doubtful"); # d
 INSERT INTO player_status (id, status) VALUES (3, "Unlikely"); # n
 INSERT INTO player_status (id, status) VALUES (4, "Available"); #a
 
-INSERT INTO club (name) VALUES ("Arsenal");
-INSERT INTO club (name) VALUES ("Liverpool");
-INSERT INTO club (name) VALUES ("Chelsea");
-INSERT INTO club (name) VALUES ("Southampton");
-INSERT INTO club (name) VALUES ("Man City");
-INSERT INTO club (name) VALUES ("Tottenham");
-INSERT INTO club (name) VALUES ("Everton");
-INSERT INTO club (name) VALUES ("Hull City");
-INSERT INTO club (name) VALUES ("Man Utd");
-INSERT INTO club (name) VALUES ("Aston Villa");
-INSERT INTO club (name) VALUES ("Newcastle");
-INSERT INTO club (name) VALUES ("West Brom");
-INSERT INTO club (name) VALUES ("West Ham");
-INSERT INTO club (name) VALUES ("Cardiff");
-INSERT INTO club (name) VALUES ("Swansea");
-INSERT INTO club (name) VALUES ("Stoke");
-INSERT INTO club (name) VALUES ("Fulham");
-INSERT INTO club (name) VALUES ("Norwich");
-INSERT INTO club (name) VALUES ("Crystal Palace");
-INSERT INTO club (name) VALUES ("Sunderland");
+INSERT INTO club (name, short_name) VALUES ("Arsenal", "ARS");
+INSERT INTO club (name, short_name) VALUES ("Liverpool", "LIV");
+INSERT INTO club (name, short_name) VALUES ("Chelsea", "CHE");
+INSERT INTO club (name, short_name) VALUES ("Southampton", "SOU");
+INSERT INTO club (name, short_name) VALUES ("Man City", "MCI");
+INSERT INTO club (name, short_name) VALUES ("Tottenham", "TOT");
+INSERT INTO club (name, short_name) VALUES ("Everton", "EVE");
+INSERT INTO club (name, short_name) VALUES ("Hull City", "HUL");
+INSERT INTO club (name, short_name) VALUES ("Man Utd", "MUN");
+INSERT INTO club (name, short_name) VALUES ("Aston Villa", "AVL");
+INSERT INTO club (name, short_name) VALUES ("Newcastle", "NEW");
+INSERT INTO club (name, short_name) VALUES ("West Brom", "WBA");
+INSERT INTO club (name, short_name) VALUES ("West Ham", "WHU");
+INSERT INTO club (name, short_name) VALUES ("Cardiff City", "CAR");
+INSERT INTO club (name, short_name) VALUES ("Swansea", "SWA");
+INSERT INTO club (name, short_name) VALUES ("Stoke City", "STK");
+INSERT INTO club (name, short_name) VALUES ("Fulham", "FUL");
+INSERT INTO club (name, short_name) VALUES ("Norwich", "NOR");
+INSERT INTO club (name, short_name) VALUES ("Crystal Palace", "CRY");
+INSERT INTO club (name, short_name) VALUES ("Sunderland", "SUN");
