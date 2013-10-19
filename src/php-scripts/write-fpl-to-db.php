@@ -5,7 +5,7 @@
 	$fixturesAdded = array(); // keeps track of teams which have had fixtures updated
 
 	// Set injury status types -- Ensure this matches DB
-	$injuryStatus = array("a" => 4, "d" => 1, "n" => 3);
+	$injuryStatus = array("a" => 6, "d" => 1, "n" => 3, "i" => 4, "u" => 5);
 
 	// Month Array
 	$months = array(
@@ -25,15 +25,25 @@
 
 	// Set team to id array
 	$clubs = array();
-	$query = DB::query("SELECT id, name FROM club");
+	$clubs_short = array();
+	$query = DB::query("SELECT id, name, short_name FROM club");
 	foreach ($query as $club) {
 		$clubs[$club['name']] = (int) $club['id'];
+		$clubs_short[$club['short_name']] = (int) $club['id'];
 	}
-	var_dump($clubs);
+
+	function convert_date($fpl_date) {
+		global $months;
+		$dateArray = explode(" ", $fpl_date);
+		$year = (($months[$dateArray[1]] > 6) ? (int) date("Y") : ((int) date("Y")) + 1);
+		$month = $months[$dateArray[1]];
+		$date = "{$year}-{$month}-{$dateArray[0]} {$dateArray[2]}:00";
+		return $date;
+	}
 
 	function write_player_to_db($player) {
-		global $months, $injuryStatus, $fixturesAdded, $clubs;
-		echo($player->second_name."\n");
+		global $months, $injuryStatus, $fixturesAdded, $clubs, $clubs_short;
+		var_dump($player->second_name."\n");
 		/* Write to player table */
 		$playerArray = array(
 			"fpl_id" => $player->id,
@@ -58,26 +68,64 @@
 			$fixtures = $player->fixtures->all;
 			foreach ($fixtures as $fixture) {
 				// Convert fixture to proper data formats
-				$dateArray = explode(" ", $fixture[0]);
-				$year = (($months[$dateArray[1]] > 6) ? (int) date("Y") : ((int) date("Y")) + 1);
-				$month = $months[$dateArray[1]];
-				$date = "{$year}-{$month}-{$dateArray[0]} {$dateArray[2]}:00";
+				$date = convert_date($fixture[0]);
 				$opponentArray = explode(' ', $fixture[2]);
-				$away = (strpos($opponentArray[1],"A") ? TRUE : FALSE);
+
+				$away = (strpos(end($opponentArray),"A") ? TRUE : FALSE);
 				$opponent = implode(" ", array_slice($opponentArray, 0, -1));
 				$gameweekArray = explode(" ", $fixture[1]);
 				$gameweek = (int) $gameweekArray[1];
 				$fixtureArray = array(
 					"gameweek" => $gameweek,
 					"kickoff_time" => $date,
-					"home_team" => (!$away ? $clubs["{$player->team_name}"] : $clubs["{$opponent}"]),
+					"home_team" => ($away ? $clubs["{$opponent}"] : $clubs["{$player->team_name}"]),
 					"away_team" => ($away ? $clubs["{$player->team_name}"] : $clubs["{$opponent}"])
 				);
-				DB::insertUpdate('fixture',$fixtureArray);
+				// take into account player who moved between prem teams
+				if ($fixtureArray['home_team'] != $fixtureArray['away_team']) {
+					$exists = DB::queryFirstRow("SELECT * FROM fixture WHERE home_team = %i AND away_team = %i", $fixtureArray["home_team"], $fixtureArray["away_team"]);
+					if ($exists) {
+						DB::update('fixture',$fixtureArray,"home_team = %i AND away_team = %i",  $fixtureArray["home_team"], $fixtureArray["away_team"]);
+					} else {
+						DB::insert('fixture',$fixtureArray);
+					}
+				}
 			}
 		}
-		/* Write fixture history */
 
+		/* Write fixture history */
+		$fixture_history = $player->fixture_history->all;
+		foreach ($fixture_history as $fixture) {
+			$date = convert_date($fixture[0]);
+			$gameweek = $fixture[1];
+			$result = explode(' ', $fixture[2]);
+			$scores = explode('-',$result[1]);
+			$opponent = explode('(', $result[0]);
+			$away = ((strpos(end($opponent),"A") === 0) ? TRUE : FALSE);
+			$fixtureArray = array(
+				"gameweek" => $gameweek,
+				"kickoff_time" => $date,
+				"home_team" => ($away ? $clubs_short["{$opponent[0]}"]: $clubs["{$player->team_name}"]),
+				"away_team" => ($away ? $clubs["{$player->team_name}"] : $clubs_short["{$opponent[0]}"]),
+				"home_goals" => $scores[0],
+				"away_goals" => $scores[1]
+			);
+			// take into account player who moved between prem teams -- write fixture to DB
+			if ($fixtureArray['home_team'] != $fixtureArray['away_team']) {
+				$exists = DB::queryFirstRow("SELECT * FROM fixture WHERE home_team = %i AND away_team = %i", $fixtureArray["home_team"], $fixtureArray["away_team"]);
+				if ($exists) {
+					DB::update('fixture',$fixtureArray,"home_team = %i AND away_team = %i",  $fixtureArray["home_team"], $fixtureArray["away_team"]);
+				} else {
+					DB::insert('fixture',$fixtureArray);
+				}
+			}
+			// write fixture-player-data to DB TODO
+			$playerFixtureArray array(
+				"minutes_played" => $fixture[3],
+				"goals" => $fixture[4],
+
+			);
+		}
 		/* Write season history */
 
 
@@ -91,7 +139,6 @@
 		$data = json_decode($data);
 		foreach ($data as $player) {
 			write_player_to_db($player);
-			return true;
 		}
 		echo "Completed database write";
 	}

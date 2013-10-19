@@ -127,7 +127,9 @@ INSERT INTO player_type (id, type) VALUES (4, "Striker");
 INSERT INTO player_status (id, status) VALUES (1, "Possible"); # d
 INSERT INTO player_status (id, status) VALUES (2, "Doubtful"); # d
 INSERT INTO player_status (id, status) VALUES (3, "Unlikely"); # n
-INSERT INTO player_status (id, status) VALUES (4, "Available"); #a
+INSERT INTO player_status (id, status) VALUES (4, "Injured"); # i
+INSERT INTO player_status (id, status) VALUES (5, "Unknown"); # u
+INSERT INTO player_status (id, status) VALUES (6, "Available"); # a
 
 INSERT INTO club (name, short_name) VALUES ("Arsenal", "ARS");
 INSERT INTO club (name, short_name) VALUES ("Liverpool", "LIV");
