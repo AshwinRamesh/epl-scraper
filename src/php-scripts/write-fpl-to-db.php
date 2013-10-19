@@ -76,6 +76,9 @@
 				DB::insertUpdate('fixture',$fixtureArray);
 			}
 		}
+		/* Write fixture history */
+
+		/* Write season history */
 
 
 
