@@ -49,7 +49,7 @@
 		$playerArray = array(
 			"fpl_id" => $player->id,
 			"fpl_code" => $player->code,
-			"club_id" => $player->team_id,
+			"club_id" => $clubs[$player->team_name],
 			"first_name" => $player->first_name,
 			"last_name" => $player->second_name,
 			"position" => $player->element_type_id,
@@ -200,5 +200,5 @@
 		echo "Completed database write";
 	}
 
-	process_data_file("data.json");
+	process_data_file("data2.json");
 ?>
