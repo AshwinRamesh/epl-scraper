@@ -85,13 +85,13 @@ CREATE TABLE player_fixture (
   minutes_played INT NOT NULL DEFAULT 0,
   goals INT DEFAULT 0,
   assists INT DEFAULT 0,
-  clean_sheets INT DEFAULT 0,
+  clean_sheet INT DEFAULT 0,
   goals_conceded INT DEFAULT 0,
   own_goals INT DEFAULT 0,
   penalties_saved INT DEFAULT 0,
   penalties_missed INT DEFAULT 0,
   yellow_card INT DEFAULT 0,
-  red_ard INT DEFAULT 0,
+  red_card INT DEFAULT 0,
   saves INT DEFAULT 0,
   bonus INT DEFAULT 0,
   esp INT DEFAULT 0,
@@ -107,15 +107,40 @@ CREATE TABLE player_fixture (
 
 CREATE TABLE player_yearly_statistics (
   player_id INT NOT NULL,
+  season VARCHAR(8) NOT NULL,
+  minutes_played INT NOT NULL DEFAULT 0,
+  goals INT DEFAULT 0,
+  assists INT DEFAULT 0,
+  clean_sheet INT DEFAULT 0,
+  goals_conceded INT DEFAULT 0,
+  own_goals INT DEFAULT 0,
+  penalties_saved INT DEFAULT 0,
+  penalties_missed INT DEFAULT 0,
+  yellow_card INT DEFAULT 0,
+  red_card INT DEFAULT 0,
+  saves INT DEFAULT 0,
+  bonus INT DEFAULT 0,
+  esp INT DEFAULT 0,
+  value INT DEFAULT 0,
+  points INT DEFAULT 0,
+  PRIMARY KEY (player_id, season),
   FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_point_details (
   id INT NOT NULL,
   last_fixture_cost DECIMAL(3,1) DEFAULT 0,
+  transfers_in INT DEFAULT 0,
   transfers_out INT DEFAULT 0,
+  last_fixture_transfers_in INT DEFAULT 0,
   last_fixture_transfers_out INT DEFAULT 0,
+  last_fixture_points INT DEFAULT 0,
+  total_points INT DEFAULT 0,
+  selected INT DEFAULT 0,
+  form DECIMAL(3,1) DEFAULT 0,
+  points_per_game DECIMAL(3,1) DEFAULT 0,
 
+  PRIMARY KEY (id),
   FOREIGN KEY (id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

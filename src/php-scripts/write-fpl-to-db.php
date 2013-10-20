@@ -44,6 +44,7 @@
 	function write_player_to_db($player) {
 		global $months, $injuryStatus, $fixturesAdded, $clubs, $clubs_short;
 		var_dump($player->second_name."\n");
+
 		/* Write to player table */
 		$playerArray = array(
 			"fpl_id" => $player->id,
@@ -119,18 +120,74 @@
 					DB::insert('fixture',$fixtureArray);
 				}
 			}
-			// write fixture-player-data to DB TODO
-			$playerFixtureArray array(
+
+			/* Write fixture-player-data to DB */
+			$playerQuery = DB::queryFirstRow("SELECT id FROM player WHERE fpl_id = %i", $player->id);
+			$fixtureQuery = DB::queryFirstRow("SELECT id FROM fixture WHERE (home_team = %i OR away_team = %i) AND kickoff_time = %s ", $clubs["{$player->team_name}"], $clubs["{$player->team_name}"], $fixtureArray["kickoff_time"] );
+			$playerFixtureArray = array(
+				"player_id" => $playerQuery["id"],
+				"fixture_id" => $fixtureQuery["id"],
 				"minutes_played" => $fixture[3],
 				"goals" => $fixture[4],
-
+				"assists" => $fixture[5],
+				"clean_sheet" => $fixture[6],
+				"goals_conceded" => $fixture[7],
+				"own_goals" => $fixture[8],
+				"penalties_saved" => $fixture[9],
+				"penalties_missed" => $fixture[10],
+				"yellow_card" => $fixture[11],
+				"red_card" => $fixture[12],
+				"saves" => $fixture[13],
+				"bonus" => $fixture[14],
+				"esp" => $fixture[15],
+				"bps" => $fixture[16],
+				"net_transfers" => $fixture[17],
+				"cost_value" => $fixture[18] * 0.1,
+				"points" => $fixture[19]
 			);
+			DB::insertUpdate('player_fixture', $playerFixtureArray);
 		}
+
 		/* Write season history */
+		$seasons = $player->season_history;
+		foreach ($seasons as $season) {
+			$playerSeasonArray = array(
+				"player_id" => $playerQuery["id"],
+				"season" => $season[0],
+				"minutes_played" => $season[1],
+				"goals" => $season[2],
+				"assists" => $season[3],
+				"clean_sheet" => $season[4],
+				"goals_conceded" => $season[5],
+				"own_goals" => $season[6],
+				"penalties_saved" => $season[7],
+				"penalties_missed" => $season[8],
+				"yellow_card" => $season[9],
+				"red_card" => $season[10],
+				"saves" => $season[11],
+				"bonus" => $season[12],
+				"esp" => $season[13],
+				"value" => $season[14] * 0.1,
+				"points" => $season[15]
+			);
+			DB::insertUpdate('player_yearly_statistics', $playerSeasonArray);
+		}
 
-
-
-		return true;
+		/* Write to player_point_details */
+		$pointArray = array(
+			"id" => $playerQuery["id"],
+			"last_fixture_cost" => $player->event_cost * 0.1,
+			"transfers_in" => $player->transfers_in,
+			"transfers_out" => $player->transfers_out,
+			"last_fixture_transfers_in" => $player->transfers_in_event,
+			"last_fixture_transfers_out" => $player->transfers_out_event,
+			"last_fixture_points" => $player->event_points,
+			"total_points" => $player->total_points,
+			"selected" => $player->selected,
+			"form" => $player->form,
+			"points_per_game" => $player->points_per_game
+		);
+		DB::insertUpdate('player_point_details', $pointArray);
 	}
 
 	function process_data_file($datafile) {

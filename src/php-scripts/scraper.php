@@ -44,6 +44,6 @@ function get_all_data($filename) {
 }
 
 
-get_all_data("data.json");
+get_all_data("data2.json");
 
 ?>
