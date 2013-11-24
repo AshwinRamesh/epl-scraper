@@ -24,18 +24,22 @@ CREATE TABLE club (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   short_name VARCHAR(5) NOT NULL,
+  position INT(2) NOT NULL DEFAULT 0,
   points INT(3) NOT NULL DEFAULT 0,
   wins INT(2) NOT NULL DEFAULT 0,
+  draws INT(2) NOT NULL DEFAULT 0,
   losses INT(2) NOT NULL DEFAULT 0,
   goals_for INT(4) NOT NULL DEFAULT 0,
   goals_against INT(4) NOT NULL DEFAULT 0,
   home_points INT(3) NOT NULL DEFAULT 0,
   home_wins INT(2) NOT NULL DEFAULT 0,
+  home_draws INT(2) NOT NULL DEFAULT 0,
   home_losses INT(2) NOT NULL DEFAULT 0,
   home_goals_for INT(4) NOT NULL DEFAULT 0,
   home_goals_against INT(4) NOT NULL DEFAULT 0,
   away_points INT(3) NOT NULL DEFAULT 0,
   away_wins INT(2) NOT NULL DEFAULT 0,
+  away_draws INT(2) NOT NULL DEFAULT 0,
   away_losses INT(2) NOT NULL DEFAULT 0,
   away_goals_for INT(4) NOT NULL DEFAULT 0,
   away_goals_against INT(4) NOT NULL DEFAULT 0,
@@ -155,6 +159,7 @@ INSERT INTO player_status (id, status) VALUES (3, "Unlikely"); # n
 INSERT INTO player_status (id, status) VALUES (4, "Injured"); # i
 INSERT INTO player_status (id, status) VALUES (5, "Unknown"); # u
 INSERT INTO player_status (id, status) VALUES (6, "Available"); # a
+INSERT INTO player_status (id, status) VALUES (7, "Suspended"); # s
 
 INSERT INTO club (name, short_name) VALUES ("Arsenal", "ARS");
 INSERT INTO club (name, short_name) VALUES ("Liverpool", "LIV");
