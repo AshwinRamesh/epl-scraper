@@ -48,6 +48,12 @@ CREATE TABLE club (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE club_nicknames (
+  club_id INT(2) NOT NULL,
+  nickname VARCHAR(30) PRIMARY KEY NOT NULL,
+  FOREIGN KEY (club_id) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 CREATE TABLE player (
   id INT NOT NULL AUTO_INCREMENT,
   fpl_id INT NOT NULL DEFAULT 0,
@@ -181,3 +187,12 @@ INSERT INTO club (name, short_name) VALUES ("Fulham", "FUL");
 INSERT INTO club (name, short_name) VALUES ("Norwich", "NOR");
 INSERT INTO club (name, short_name) VALUES ("Crystal Palace", "CRY");
 INSERT INTO club (name, short_name) VALUES ("Sunderland", "SUN");
+
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();
+INSERT INTO club_nicknames (club_id, nickname) VALUES ();

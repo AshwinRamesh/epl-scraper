@@ -23,6 +23,7 @@ function get_json_by_id($id) {
 
 /* Temp */
 function writeData($filename) {
+    echo("Beginning Scraper\n");
     $i = STARTING_ID;
     $new_player = true;
     $player_array = array();
@@ -30,8 +31,9 @@ function writeData($filename) {
         $data = get_json_by_id($i);
         if (!$data) {
             $new_player = false;
+        } else {
             array_push($player_array, $data);
-            echo "Processed id $i\n";
+            echo("Processed id $i\n");
             $i = $i + 1;
         }
     }
@@ -42,7 +44,15 @@ function writeData($filename) {
     echo "Player Scrape Completed.\n";
 }
 
+function main() {
+    global $argc, $argv;
+    if (sizeof($argv) == 1) {
+        echo("Please specify a file to write to. \n");
+        exit(1);
+    }
+    writeData($argv[1]);
+    exit(0);
+}
 
-//get_all_data("data3.json");
-    writeData("data3.json");
+main();
 ?>

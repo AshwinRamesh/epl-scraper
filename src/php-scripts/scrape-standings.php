@@ -12,7 +12,10 @@
         foreach ($row->find("td") as $cell) {
             array_push($rowArray, $cell->innertext);
         }
-        //$team_name = $cell[2] // get the team name and search by it
+        $teamname = explode(">", $rowArray[2]);
+        $teamname = explode("<", $teamname[1]);
+        $teamname = $teamname[0];
+        var_dump($teamname);
         $standingsArray = array(
             "position" => intval($rowArray[0]),
             "played" => intval($rowArray[3]),
@@ -34,7 +37,7 @@
             "goal_difference" => intval($rowArray[22]),
             "points" => intval($rowArray[23])
         );
-        var_dump($standingsArray);
+        //var_dump($standingsArray);
     }
     var_dump(gettype($table));
 
