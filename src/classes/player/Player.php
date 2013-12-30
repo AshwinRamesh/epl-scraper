@@ -1,5 +1,8 @@
 <?php
 
+include_once("base.php");
+include_once("$publicBase/config/config.php");
+
 class Player {
 
     function __construct() {
@@ -14,7 +17,7 @@ class Player {
 
     function set_transfersOut($transfers) {
         if (is_int($transfers)) {
-            $this->trasnfersOut = $trasfers;
+            $this->trasnfersOut = $transfers;
         }
     }
 
@@ -98,7 +101,7 @@ class Player {
 
     function set_inDreamTeam($inTeam) {
         if (is_bool($inTeam)) {
-            $this->inDreamTeam($inTeam);
+            $this->inDreamTeam = $inTeam;
         }
     }
 
@@ -127,7 +130,7 @@ class Player {
     }
 
     function set_shirtImageUrl($url) {
-        $this->shirtImageUrl = $url
+        $this->shirtImageUrl = $url;
     }
 
     function get_firstName() {
@@ -201,7 +204,7 @@ class Player {
 
     function set_totalPoints($points) {
         if (is_int($points)) {
-            $this->totalPoints = $points
+            $this->totalPoints = $points;
         }
     }
 
@@ -347,7 +350,7 @@ class Player {
     }
 
     function set_selectedBy($selected) {
-        if (is_int($seected)) {
+        if (is_int($selected)) {
             $this->selectedBy = $selected;
         }
     }
@@ -378,9 +381,10 @@ class Player {
         $this->photoMobileUrl = $url;
     }
 
-    function get_fixtures() {
+    function get_fixtures() { // upcoming fixtures
         return $this->fixtures;
     } // multiple
+
     function set_fixtures() {}
 
     function get_seasonHistory() {
@@ -396,6 +400,14 @@ class Player {
     /* Additional Functions */
 
     /* Database Read/Write Functions */
+
+    public function get_all_player_status() {
+
+    }
+
+    public function save() {
+        var_dump($this);
+    }
 }
 
 ?>
