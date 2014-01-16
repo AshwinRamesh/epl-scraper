@@ -1,3 +1,5 @@
 <?php
-    $base = "../..";
+	exit();
+    $base = "..";
+    var_dump($base);
 ?>

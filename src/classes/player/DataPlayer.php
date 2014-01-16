@@ -4,8 +4,9 @@
 * @author Ashwin Ramesh
 * This class represents one player in data form. This is done to insert player data into the database
 */
-
-include_once("base.php");
+var_dump("inc base");
+(include(__DIR__."/base.php"));
+var_dump($base." fgdfh");
 include_once("$base/config/config.php");
 include_once("Player.php");
 
@@ -71,7 +72,7 @@ class DataPlayer extends Player {
 
     public function set_fixtures($fixtures) {
         $this->fixtures = array();
-        for ($fixtures as $fixture) {
+        foreach ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
             $f->save();
             array_push($this->fixtures, $f);
@@ -81,7 +82,7 @@ class DataPlayer extends Player {
     /* fix this to take player performance into account */
     public function set_fixtureHistory($fixtures) {
         $this->fixtureHistory = array();
-        for ($fixtures as $fixture) {
+        foreach ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
             $f->save();
             array_push($this->fixtures, $f);
@@ -90,7 +91,7 @@ class DataPlayer extends Player {
 
     public function set_seasonHistory($history) {
         $this->seasonHistory = array();
-        for ($history as $season) {
+        foreach ($history as $season) {
             $s = new DataSeason($season);
             $s->save();
             array_push($this->seasonHistory, $s);

@@ -1,6 +1,6 @@
 <?php
 
-include_once("base.php");
+include("base.php");
 include_once("$base/classes/player/DataPlayer.php");
 
 function writeDataToDB($datafile) {
