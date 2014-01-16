@@ -6,7 +6,7 @@
 */
 
 include_once("base.php");
-include_once("$publicBase/config/config.php");
+include_once("$base/config/config.php");
 include_once("Player.php");
 
 class DataPlayer extends Player {
@@ -73,6 +73,7 @@ class DataPlayer extends Player {
         $this->fixtures = array();
         for ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
+            $f->save();
             array_push($this->fixtures, $f);
         }
     }
@@ -82,7 +83,17 @@ class DataPlayer extends Player {
         $this->fixtureHistory = array();
         for ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
+            $f->save();
             array_push($this->fixtures, $f);
+        }
+    }
+
+    public function set_seasonHistory($history) {
+        $this->seasonHistory = array();
+        for ($history as $season) {
+            $s = new DataSeason($season);
+            $s->save();
+            array_push($this->seasonHistory, $s);
         }
     }
 }

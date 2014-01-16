@@ -2,9 +2,9 @@
 
 /* Config for the website */
     include_once("base.php");
-    include_once("$publicBase/lib/db.php"); // database library
-    include_once("$srcBase/classes/player/Player.php");
-    include_once("$srcBase/classes/player/DataPlayer.php");
+    include_once("$base/lib/db.php"); // database library
+    include_once("$base/classes/player/Player.php");
+    include_once("$base/classes/player/DataPlayer.php");
 
     /* Database Library Config */
     DB::$user = 'ashwin';

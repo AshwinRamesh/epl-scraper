@@ -1,7 +1,7 @@
 <?php
 
 include_once("base.php");
-include_once("$srcBase/classes/player/DataPlayer.php");
+include_once("$base/classes/player/DataPlayer.php");
 
 function writeDataToDB($datafile) {
     $f = fopen($datafile, "r");
@@ -10,7 +10,7 @@ function writeDataToDB($datafile) {
     foreach ($data as $player_data) {
         $player = new DataPlayer($player_data);
         $player->save();
-        exit();
+        exit();[]
     }
 }
 

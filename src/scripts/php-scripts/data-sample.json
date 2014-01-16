@@ -1,30 +1,30 @@
 {
-    "transfers_out": 12079,
-    "code": 37096, //playerCode
-    "event_total": 0,
-    "last_season_points": 0,
-    "squad_number": null,
-    "news_updated": null,
-    "event_cost": 42,
-    "news_added": null,
-    "web_name": "Fabianski",
-    "in_dreamteam": false,
+    "transfers_out": 12079, // done
+    "code": 37096, //playerCode done
+    "event_total": 0, // done
+    "last_season_points": 0, // done
+    "squad_number": null, // done
+    "news_updated": null, // done
+    "event_cost": 42, // done
+    "news_added": null, // done
+    "web_name": "Fabianski", // done
+    "in_dreamteam": false, // done
     "team_code": 37096,
-    "id": 1,
-    "shirt_image_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/shirt_1_1.png",
-    "first_name": "Lukasz",
-    "transfers_out_event": 112,
-    "element_type_id": 1,
-    "max_cost": 45,
-    "event_explain": [
+    "id": 1, // done
+    "shirt_image_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/shirt_1_1.png", // done
+    "first_name": "Lukasz", // done
+    "transfers_out_event": 112, // done
+    "element_type_id": 1, // done
+    "max_cost": 45, // done
+    "event_explain": [ // todo ??
       [
         "Minutes played",
         0,
         0
       ]
     ],
-    "selected": 17286,
-    "min_cost": 42,
+    "selected": 17286, // done
+    "min_cost": 42, // done
     "fixtures": {
       "all": [
         [
@@ -262,21 +262,21 @@
         13
       ]
     ],
-    "total_points": 0,
+    "total_points": 0, // done
     "type_name": "Goalkeeper",
     "team_name": "Arsenal",
-    "status": "a",
-    "added": "2013-07-15T13:21:12 UTC+0000",
-    "form": 0,
-    "shirt_mobile_image_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/mobile/shirt_1_1.png",
+    "status": "a", // done
+    "added": "2013-07-15T13:21:12 UTC+0000", // done
+    "form": 0, // done
+    "shirt_mobile_image_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/mobile/shirt_1_1.png", // done
     "current_fixture": "West Ham (A)",
-    "now_cost": 42,
-    "points_per_game": 0,
-    "transfers_in": 2770,
-    "news": "",
-    "original_cost": 45,
-    "event_points": 0,
-    "news_return": null,
+    "now_cost": 42, // done
+    "points_per_game": 0, // done
+    "transfers_in": 2770, // done
+    "news": "", // done
+    "original_cost": 45, // done
+    "event_points": 0, // done
+    "news_return": null, // done
     "fixture_history": {
       "all": [
         [
@@ -695,9 +695,9 @@
       ]
     },
     "next_fixture": "Newcastle (A)",
-    "transfers_in_event": 38,
-    "selected_by": "0.6",
+    "transfers_in_event": 38, // done
+    "selected_by": "0.6", // done
     "team_id": 1,
-    "second_name": "Fabianski",
-    "photo_mobile_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/photos/37096.jpg"
+    "second_name": "Fabianski", // done
+    "photo_mobile_url": "http://cdn.ismfg.net/static/plfpl/img/shirts/photos/37096.jpg" // done
   }
