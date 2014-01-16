@@ -25,13 +25,14 @@ function get_json_by_id($id) {
 function writeData($filename) {
     echo("Beginning Scraper\n");
     $i = STARTING_ID;
-    $new_player = true;
+    $failed_count = 0;
     $player_array = array();
-    while ($new_player) {
+    while ($failed_count < 3) { // allow for 3 fails before stopping script
         $data = get_json_by_id($i);
         if (!$data) {
-            $new_player = false;
+            $failed_count = $failed_count + 1;
         } else {
+            $failed_count = 0;
             array_push($player_array, $data);
             echo("Processed id $i\n");
             $i = $i + 1;

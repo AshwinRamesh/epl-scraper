@@ -1,5 +1,5 @@
 <?php
-    $base = "../../..";
+    $base = "../..";
     $publicBase = "$base/public";
     $srcBase = "$base/src";
 ?>

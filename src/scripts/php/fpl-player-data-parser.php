@@ -10,7 +10,7 @@ function writeDataToDB($datafile) {
     foreach ($data as $player_data) {
         $player = new DataPlayer($player_data);
         $player->save();
-        exit();[]
+        exit();
     }
 }
 
