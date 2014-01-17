@@ -406,12 +406,25 @@ class Player {
 
     }
 
+    public function get_all_player_types() {
+        return DB::query("SELECT * FROM player_type");
+    }
+
+    /* $type is a string which represents the player type. */
+    public function get_player_type_id($type) {
+        $query = DB::query("SELECT id FROM player_type WHERE type = %s", $type);
+        if (sizeof($query) == 1) {
+            return (int)$query[0]["id"];
+        }
+        return False;
+    }
+
     public function save() {
         echo($this->get_firstName() . "\n");
         DB::insertUpdate('player',array(
                 "fpl_id" => $this->get_id(),
                 "fpl_code" => $this->get_playerCode(),
-                "club_id" => 1, // FIX THIS
+                "club_id" => 1, // fix
                 "squad_number" => $this->get_squadNumber(),
                 "first_name" => $this->get_firstName(),
                 "second_name" => $this->get_secondName(),
@@ -420,7 +433,7 @@ class Player {
                 "shirt_image_url" => $this->get_shirtImageUrl(),
                 "shirt_mobile_image_url" => $this->get_shirtMobileImageUrl(),
                 "photo_mobile_url" => $this->get_photoMobileUrl(),
-                "type" => 1, // FIX THIS
+                "type" => $this->get_player_type_id($this->get_typeName()),
                 "total_points" => $this->get_totalPoints(),
                 "points_per_game" => $this->get_pointsPerGame(),
                 "last_season_points" => $this->get_lastSeasonPoints(),

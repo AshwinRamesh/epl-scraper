@@ -62,7 +62,7 @@ class DataPlayer extends Player {
             $this->set_teamId($data->team_id);
             $this->set_secondName($data->second_name);
             $this->set_photoMobileUrl($data->photo_mobile_url);
-           // $this->set_fixtures($data->fixtures->all);
+            $this->set_fixtures($data->fixtures->all);
             $this->set_seasonHistory($data->season_history);
            // $this->set_fixtureHistory($data->fixture_history);
         } catch (Exception $e) {
