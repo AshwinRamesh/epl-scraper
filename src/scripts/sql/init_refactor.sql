@@ -5,9 +5,9 @@ DROP TABLE IF EXISTS player_cost;
 DROP TABLE IF EXISTS player_event;
 DROP TABLE IF EXISTS player_news;
 DROP TABLE IF EXISTS player_transfers;
+DROP TABLE IF EXISTS player;
 DROP TABLE IF EXISTS player_type;
 DROP TABLE IF EXISTS player_status;
-DROP TABLE IF EXISTS player;
 DROP TABLE IF EXISTS club;
 
 CREATE TABLE player_type (
@@ -85,9 +85,8 @@ INSERT INTO club (name, short_name) VALUES ("Crystal Palace", "CRY");
 INSERT INTO club (name, short_name) VALUES ("Sunderland", "SUN");
 
 CREATE TABLE player(
-  id INT NOT NULL AUTO_INCREMENT,
   last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  fpl_id INT NOT NULL DEFAULT 0,
+  fpl_id INT NOT NULL,
   fpl_code INT NOT NULL DEFAULT 0,
   club_id INT(6) NOT NULL DEFAULT 0,
   squad_number INT(3),
@@ -103,33 +102,30 @@ CREATE TABLE player(
   points_per_game INT(3) DEFAULT 0,
   last_season_points INT(4) DEFAULT 0,
   fpl_added VARCHAR(100),
-  PRIMARY KEY (id),
+  PRIMARY KEY (fpl_id),
   FOREIGN KEY (club_id) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_news(
-  id INT NOT NULL AUTO_INCREMENT,
   player_id INT NOT NULL,
   status CHAR(1) NOT NULL DEFAULT "a",
   news_updated VARCHAR(300),
   news_added VARCHAR(300),
   news VARCHAR(300),
   news_return VARCHAR(300),
-  PRIMARY KEY (id),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (player_id),
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_event(
-  id INT NOT NULL AUTO_INCREMENT,
   player_id INT NOT NULL,
   event_total INT(3) NOT NULL DEFAULT 0,
   event_points INT(3) NOT NULL DEFAULT 0,
-  PRIMARY KEY (id),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (player_id),
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_transfers(
-  id INT NOT NULL AUTO_INCREMENT,
   player_id INT NOT NULL,
   transfers_out_event INT(8) NOT NULL DEFAULT 0,
   transfers_in_event INT(8) NOT NULL DEFAULT 0,
@@ -137,20 +133,19 @@ CREATE TABLE player_transfers(
   transfers_in INT(8) NOT NULL DEFAULT 0,
   transfers_out INT(8) NOT NULL DEFAULT 0,
   selected_by DECIMAL(4,1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (id),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (player_id),
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_cost(
-  id INT NOT NULL AUTO_INCREMENT,
   player_id INT NOT NULL,
   event_cost DECIMAL(4,1) NOT NULL DEFAULT 0,
   max_cost DECIMAL(4,1) NOT NULL DEFAULT 0,
   min_cost DECIMAL(4,1) NOT NULL DEFAULT 0,
   now_cost DECIMAL(4,1) NOT NULL DEFAULT 0,
   original_cost DECIMAL(4,1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (id),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (player_id),
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_history(
@@ -169,10 +164,11 @@ CREATE TABLE player_history(
   saves INT DEFAULT 0,
   bonus INT DEFAULT 0,
   esp INT DEFAULT 0,
+  bps INT DEFAULT 0,
   value INT DEFAULT 0,
   points INT DEFAULT 0,
   PRIMARY KEY (player_id, season),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE fixture(
@@ -210,6 +206,6 @@ CREATE TABLE player_fixture (
   points INT DEFAULT 0,
 
   PRIMARY KEY (player_id, fixture_id),
-  FOREIGN KEY (player_id) REFERENCES player(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (player_id) REFERENCES player(fpl_id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (fixture_id) REFERENCES fixture(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

@@ -4,11 +4,11 @@
 * @author Ashwin Ramesh
 * This class represents one player in data form. This is done to insert player data into the database
 */
-var_dump("inc base");
-(include(__DIR__."/base.php"));
-var_dump($base." fgdfh");
-include_once("$base/config/config.php");
-include_once("Player.php");
+
+include_once(__DIR__."/Player.php");
+include_once(__DIR__."/../../classes/fixture/DataFixture.php");
+include_once(__DIR__."/../../classes/season/DataSeason.php");
+include_once(__DIR__."/../../config/config.php");
 
 class DataPlayer extends Player {
 
@@ -62,9 +62,9 @@ class DataPlayer extends Player {
             $this->set_teamId($data->team_id);
             $this->set_secondName($data->second_name);
             $this->set_photoMobileUrl($data->photo_mobile_url);
-            $this->set_fixtures($data->fixtures->all);
+           // $this->set_fixtures($data->fixtures->all);
             $this->set_seasonHistory($data->season_history);
-            $this->set_fixtureHistory($data->fixture_history);
+           // $this->set_fixtureHistory($data->fixture_history);
         } catch (Exception $e) {
             echo "Exception occured";
         }
@@ -74,7 +74,6 @@ class DataPlayer extends Player {
         $this->fixtures = array();
         foreach ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
-            $f->save();
             array_push($this->fixtures, $f);
         }
     }
@@ -84,7 +83,6 @@ class DataPlayer extends Player {
         $this->fixtureHistory = array();
         foreach ($fixtures as $fixture) {
             $f = new DataFixture($fixture);
-            $f->save();
             array_push($this->fixtures, $f);
         }
     }
@@ -92,8 +90,7 @@ class DataPlayer extends Player {
     public function set_seasonHistory($history) {
         $this->seasonHistory = array();
         foreach ($history as $season) {
-            $s = new DataSeason($season);
-            $s->save();
+            $s = new DataSeason($this->id, $season);
             array_push($this->seasonHistory, $s);
         }
     }

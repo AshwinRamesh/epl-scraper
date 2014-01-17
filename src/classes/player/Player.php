@@ -1,7 +1,6 @@
 <?php
 
-include_once("base.php");
-include_once("../config/config.php");
+include_once(__DIR__."/../../config/config.php");
 
 class Player {
 
@@ -58,6 +57,8 @@ class Player {
     function set_squadNumber($number) {
         if (is_int($number)) {
             $this->squadNumber = $number;
+        } else {
+            $this->squadNumber = null;
         }
     }
 
@@ -74,8 +75,8 @@ class Player {
     }
 
     function set_eventCost($cost) {
-        if (is_float($cost)) {
-            $this->eventCost = $cost;
+        if (is_int($cost)) {
+            $this->eventCost = $cost / 10.0;
         }
     }
 
@@ -167,7 +168,7 @@ class Player {
 
     function set_maxCost($cost) {
         if (is_int($cost)) {
-            $this->maxCost = $cost;
+            $this->maxCost = $cost / 10.0;
         }
     }
 
@@ -194,7 +195,7 @@ class Player {
 
     function set_minCost($cost) {
         if (is_int($cost)) {
-            $this->minCost = $cost;
+            $this->minCost = $cost / 10.0;
         }
     }
 
@@ -269,7 +270,7 @@ class Player {
     }
     function set_nowCost($cost) {
         if (is_int($cost)) {
-            $this->nowCost = $cost;
+            $this->nowCost = $cost / 10.0;
         }
     }
 
@@ -305,7 +306,7 @@ class Player {
 
     function set_originalCost($cost) {
         if (is_int($cost)) {
-            $this->nowCost = $cost;
+            $this->originalCost = $cost / 10.0;
         }
     }
 
@@ -406,7 +407,54 @@ class Player {
     }
 
     public function save() {
-        var_dump($this);
+        echo($this->get_firstName() . "\n");
+        DB::insertUpdate('player',array(
+                "fpl_id" => $this->get_id(),
+                "fpl_code" => $this->get_playerCode(),
+                "club_id" => 1, // FIX THIS
+                "squad_number" => $this->get_squadNumber(),
+                "first_name" => $this->get_firstName(),
+                "second_name" => $this->get_secondName(),
+                "web_name" => $this->get_webName(),
+                "in_dreamteam" => $this->get_inDreamTeam(),
+                "shirt_image_url" => $this->get_shirtImageUrl(),
+                "shirt_mobile_image_url" => $this->get_shirtMobileImageUrl(),
+                "photo_mobile_url" => $this->get_photoMobileUrl(),
+                "type" => 1, // FIX THIS
+                "total_points" => $this->get_totalPoints(),
+                "points_per_game" => $this->get_pointsPerGame(),
+                "last_season_points" => $this->get_lastSeasonPoints(),
+                "fpl_added" => $this->get_lastSeasonPoints()
+            ));
+
+        DB::insertUpdate('player_news', array(
+                "player_id" => $this->get_id(),
+                "status" => $this->get_status(),
+                "news_updated" => $this->get_newsUpdated(),
+                "news_added" => $this->get_newsAdded(),
+                "news" => $this->get_news(),
+                "news_return" => $this->get_newsReturn()
+            ));
+
+        DB::insertUpdate('player_event', array(
+                "player_id" => $this->get_id(),
+                "event_total" => $this->get_eventTotal(),
+                "event_points" => $this->get_eventPoints()
+            ));
+
+        DB::insertUpdate('player_cost', array(
+                "player_id" => $this->get_id(),
+                "event_cost" => $this->get_eventCost(),
+                "max_cost" => $this->get_maxCost(),
+                "min_cost" => $this->get_minCost(),
+                "now_cost" => $this->get_nowCost(),
+                "original_cost" => $this->get_originalCost()
+            ));
+
+        foreach ($this->get_seasonHistory() as $season) {
+            $season->save();
+        }
+
     }
 }
 

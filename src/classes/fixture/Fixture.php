@@ -2,7 +2,7 @@
 
 class Fixture {
 
-    __construct() {}
+    function __construct() {}
 
     /* Setters/Getters */
     function get_id() {

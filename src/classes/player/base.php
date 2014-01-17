@@ -1,5 +1,3 @@
 <?php
-	exit();
-    $base = "..";
-    var_dump($base);
+    $base = __DIR__."/../..";
 ?>
