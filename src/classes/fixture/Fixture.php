@@ -9,6 +9,25 @@ class Fixture {
         return $this->id;
     }
 
+    function get_month_year_array() {
+        return array( // change this according to season
+            "Aug" => array("year" => 2013, "month" => 8),
+            "Sep" => array("year" => 2013, "month" => 9),
+            "Oct" => array("year" => 2013, "month" => 10),
+            "Nov" => array("year" => 2013, "month" => 11),
+            "Dec" => array("year" => 2013, "month" => 12),
+            "Jan" => array("year" => 2014, "month" => 1),
+            "Feb" => array("year" => 2014, "month" => 2),
+            "Mar" => array("year" => 2014, "month" => 3),
+            "Apr" => array("year" => 2014, "month" => 4),
+            "May" => array("year" => 2014, "month" => 5)
+        );
+    }
+
+    function get_match_timezone() {
+        return new DateTimeZone("Europe/London");
+    }
+
     function set_id($id) {
         if (is_int($id)) {
             $this->id = $id;
@@ -64,13 +83,26 @@ class Fixture {
         $this->awayGoals = $awayGoals;
     }
 
+    function get_played() {
+        return $this->played;
+    }
+
+    function set_played($played) {
+        $this->played = $played;
+    }
+
     function get_result() {
-        return $this->result ;
+        return array(
+            "winner" => (($this->get_home_goals() != $this->get_away_goals() && $this->get_home_goals() > $this->get_away_goals()) ? $this->get_home_team() : $this->get_away_team()),
+            "loser" => (($this->get_home_goals() != $this->get_away_goals() && $this->get_home_goals() > $this->get_away_goals()) ? $this->get_away_team() : $this->get_home_team()),
+            "draw" => (($this->get_home_goals() == $this->get_away_goals())? true : false),
+            "home_team" => $this->get_home_team(),
+            "away_team" => $this->get_away_team(),
+            "home_team_goals" => $this->get_home_goals(),
+            "away_team_goals" => $this->get_away_goals()
+            );
     }
 
-    function set_result() { // array
-
-    }
 
 }
 

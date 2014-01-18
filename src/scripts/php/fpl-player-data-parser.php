@@ -1,4 +1,5 @@
 <?php
+include_once(__DIR__."/bootstrap-fixtures.php");
 include_once(__DIR__."/../../classes/player/DataPlayer.php");
 
 function writeDataToDB($datafile) {
@@ -21,6 +22,7 @@ function main() {
         echo("File does not exist. Aborting. \n");
         exit(1);
     }
+    create_fixtures();
     writeDataToDB($argv[1]);
     echo("Finished write to DB");
     exit(0);

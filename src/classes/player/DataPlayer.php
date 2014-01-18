@@ -9,6 +9,7 @@ include_once(__DIR__."/Player.php");
 include_once(__DIR__."/../../classes/fixture/DataFixture.php");
 include_once(__DIR__."/../../classes/season/DataSeason.php");
 include_once(__DIR__."/../../config/config.php");
+include_once(__DIR__."/../../classes/club/Club.php");
 
 class DataPlayer extends Player {
 
@@ -59,10 +60,10 @@ class DataPlayer extends Player {
             $this->set_nextFixture($data->next_fixture);
             $this->set_transfersInEvent($data->transfers_in_event);
             $this->set_selectedBy($data->selected_by);
-            $this->set_teamId($data->team_id);
+            $this->set_teamId(Club::get_club_id($this->get_teamName()));
             $this->set_secondName($data->second_name);
             $this->set_photoMobileUrl($data->photo_mobile_url);
-            $this->set_fixtures($data->fixtures->all);
+            $this->set_fixtures($data->fixtures->all, $this->get_teamId());
             $this->set_seasonHistory($data->season_history);
            // $this->set_fixtureHistory($data->fixture_history);
         } catch (Exception $e) {
@@ -70,10 +71,10 @@ class DataPlayer extends Player {
         }
     }
 
-    public function set_fixtures($fixtures) {
+    public function set_fixtures($fixtures, $player_team) {
         $this->fixtures = array();
         foreach ($fixtures as $fixture) {
-            $f = new DataFixture($fixture);
+            $f = new DataFixture($fixture, $player_team);
             array_push($this->fixtures, $f);
         }
     }

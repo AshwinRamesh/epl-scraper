@@ -19,7 +19,7 @@ CREATE TABLE player_type (
 INSERT INTO player_type (id, type) VALUES (1, "Goalkeeper");
 INSERT INTO player_type (id, type) VALUES (2, "Defender");
 INSERT INTO player_type (id, type) VALUES (3, "Midfielder");
-INSERT INTO player_type (id, type) VALUES (4, "Striker");
+INSERT INTO player_type (id, type) VALUES (4, "Forward");
 
 CREATE TABLE player_status (
   id INT NOT NULL AUTO_INCREMENT,
@@ -179,9 +179,11 @@ CREATE TABLE fixture(
   kickoff_time DATETIME,
   home_team INT NOT NULL,
   away_team INT NOT NULL,
-  home_goals INT NOT NULL DEFAULT 0,
-  away_goals INT NOT NULL DEFAULT 0,
-  PRIMARY KEY (id, home_team, away_team),
+  home_goals INT,
+  away_goals INT,
+  played INT(1) NOT NULL DEFAULT 0, -- 1 or 0
+  PRIMARY KEY (home_team, away_team),
+  INDEX `fixture_id_idx` (id),
   FOREIGN KEY (home_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (away_team) REFERENCES club(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

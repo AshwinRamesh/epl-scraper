@@ -1,6 +1,7 @@
 <?php
 
 include_once(__DIR__."/../../config/config.php");
+include_once(__DIR__."/../../classes/club/Club.php");
 
 class Player {
 
@@ -361,8 +362,8 @@ class Player {
     }
 
     function set_teamId($id) {
-        if (is_int($id)) {
-            $this->teamId = $id;
+        if (is_numeric($id)) {
+            $this->teamId = (int) $id;
         }
     }
 
@@ -424,7 +425,7 @@ class Player {
         DB::insertUpdate('player',array(
                 "fpl_id" => $this->get_id(),
                 "fpl_code" => $this->get_playerCode(),
-                "club_id" => 1, // fix
+                "club_id" => $this->get_teamId(),
                 "squad_number" => $this->get_squadNumber(),
                 "first_name" => $this->get_firstName(),
                 "second_name" => $this->get_secondName(),
@@ -466,6 +467,10 @@ class Player {
 
         foreach ($this->get_seasonHistory() as $season) {
             $season->save();
+        }
+
+        foreach ($this->get_fixtures() as $fixture) {
+            $fixture->save();
         }
 
     }
