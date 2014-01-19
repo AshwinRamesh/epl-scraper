@@ -1,5 +1,6 @@
 <?php
 include_once(__DIR__."/bootstrap-fixtures.php");
+include_once(__DIR__."/parse-past-fixtures.php");
 include_once(__DIR__."/../../classes/player/DataPlayer.php");
 
 function writeDataToDB($datafile) {
@@ -7,6 +8,7 @@ function writeDataToDB($datafile) {
     $data = fread($f, filesize($datafile));
     $data = json_decode($data);
     foreach ($data as $player_data) {
+        parse_past_fixtures($player_data);
         $player = new DataPlayer($player_data);
         $player->save();
     }
