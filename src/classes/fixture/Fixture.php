@@ -9,7 +9,16 @@ class Fixture {
         return $this->id;
     }
 
-    function get_month_year_array() {
+    public static function convert_kickoff_time($kickoff) {
+        $data = explode(" ", $kickoff);
+        $month = Fixture::get_month_year_array();
+        $timezone = Fixture::get_match_timezone();
+        $timestamp = $month[$data[1]]["year"] . "-" . $month[$data[1]]["month"] . "-" . $data[0] . " {$data[2]}:00";
+        $date = new DateTime($timestamp, $timezone);
+        return $date->format("Y-m-d H:i:s");
+    }
+
+    public static function get_month_year_array() {
         return array( // change this according to season
             "Aug" => array("year" => 2013, "month" => 8),
             "Sep" => array("year" => 2013, "month" => 9),
@@ -24,7 +33,7 @@ class Fixture {
         );
     }
 
-    function get_match_timezone() {
+    public static function get_match_timezone() {
         return new DateTimeZone("Europe/London");
     }
 

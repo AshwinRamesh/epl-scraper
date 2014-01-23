@@ -2,6 +2,7 @@
 
 include_once("Fixture.php");
 include_once(__DIR__."/../../classes/club/Club.php");
+include_once(__DIR__."/../../classes/playerfixture/DataPlayerFixture.php");
 
 class DataFixture extends Fixture {
 
@@ -12,12 +13,7 @@ class DataFixture extends Fixture {
     }
 
     function set_kickoff($kickoff) {
-        $data = explode(" ", $kickoff);
-        $month = $this->get_month_year_array();
-        $timezone = $this->get_match_timezone();
-        $timestamp = $month[$data[1]]["year"] . "-" . $month[$data[1]]["month"] . "-" . $data[0] . " {$data[2]}:00";
-        $date = new DateTime($timestamp, $timezone);
-        $this->kickoff = $date->format('Y-m-d H:i:s');
+        $this->kickoff = Fixture::convert_kickoff_time($kickoff);
     }
 
     function set_round($round) {
