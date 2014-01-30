@@ -10,6 +10,8 @@ include_once(__DIR__."/../../classes/fixture/DataFixture.php");
 include_once(__DIR__."/../../classes/season/DataSeason.php");
 include_once(__DIR__."/../../config/config.php");
 include_once(__DIR__."/../../classes/club/Club.php");
+include_once(__DIR__."/../../classes/playerfixture/DataPlayerFixture.php");
+
 
 class DataPlayer extends Player {
 
@@ -65,7 +67,7 @@ class DataPlayer extends Player {
             $this->set_photoMobileUrl($data->photo_mobile_url);
             $this->set_fixtures($data->fixtures->all, $this->get_teamId());
             $this->set_seasonHistory($data->season_history);
-           // $this->set_fixtureHistory($data->fixture_history);
+            $this->set_fixtureHistory($data->id, $data->fixture_history->all);
         } catch (Exception $e) {
             echo "Exception occured";
         }
@@ -80,11 +82,11 @@ class DataPlayer extends Player {
     }
 
     /* fix this to take player performance into account */
-    public function set_fixtureHistory($fixtures) {
+    public function set_fixtureHistory($player_id, $fixtures) {
         $this->fixtureHistory = array();
         foreach ($fixtures as $fixture) {
-            $f = new DataFixture($fixture);
-            array_push($this->fixtures, $f);
+            $playerFixture = new DataPlayerFixture($fixture, $player_id);
+            array_push($this->fixtureHistory, $playerFixture);
         }
     }
 

@@ -156,6 +156,29 @@ class PlayerFixture {
         $this->points = $points;
     }
 
+    function save() {
+        DB::insertUpdate("player_fixture", array(
+            "player_id" => $this->get_playerId(),
+            "fixture_id" => $this->get_fixtureId(),
+            "minutes_played" => $this->get_minutesPlayed(),
+            "goals" => $this->get_goals(),
+            "assists" => $this->get_assists(),
+            "clean_sheet" => $this->get_cleanSheet(),
+            "goals_conceded" => $this->get_goalsConceded(),
+            "own_goals" => $this->get_ownGoals(),
+            "penalties_saved" => $this->get_penaltiesSaved(),
+            "penalties_missed" => $this->get_penaltiesMissed(),
+            "yellow_card" => $this->get_yellowCard(),
+            "red_card" => $this->get_redCard(),
+            "saves" => $this->get_saves(),
+            "bonus" => $this->get_bonus(),
+            "ea_sports_ppi" => $this->get_eaSportsPPI(),
+            "bonus_point_system" => $this->get_bonusPointSystem(),
+            "net_transfers" => $this->get_netTransfers(),
+            "cost_value" => $this->get_costValue(),
+            "points" => $this->get_points()
+        ));
+    }
 
 
 }

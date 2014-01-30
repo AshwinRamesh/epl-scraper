@@ -473,6 +473,9 @@ class Player {
             $fixture->save();
         }
 
+        foreach ($this->get_fixtureHistory() as $playerFixture) {
+            $playerFixture->save();
+        }
     }
 }
 

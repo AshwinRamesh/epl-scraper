@@ -266,26 +266,26 @@
     "fixture_history": {
       "all": [
         [
-          "17 Aug 15:00",
-          1,
-          "AVL(H) 1-3",
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          45,
-          0
+          "17 Aug 15:00", // Date 0
+          1, // Round 1
+          "AVL(H) 1-3", // Result 2
+          0, // Minutes 3
+          0, // Goals Scored 4
+          0, // Assists 5
+          0, // Clean sheet 6
+          0, // Goals conceded 7
+          0, // Own goals 8
+          0, // Penalities saved 9
+          0, // Penalities missed 10
+          0, // yellow 11
+          0, // red 12
+          0, // saves 13
+          0, // bonus 14
+          0, // esp 15
+          0, // bps 16
+          0, // net transfers 17
+          45, // value 18
+          0 // points 19
         ],
         [
           "24 Aug 12:45",
