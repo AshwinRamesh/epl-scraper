@@ -20,6 +20,6 @@
     $resultArray['gameweek'] = $gameweek;
     $resultArray['fixtures'] = $fixtures;
 
-    return json_encode($resultArray);
+    echo(json_encode($resultArray));
 
 ?>
