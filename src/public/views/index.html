@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 gameweek-info">
     <h1>Gameweek</h1>
-    <h2>{{gameweek}}</h2>
+    <h2>{{fixtureData.gameweek}}</h2>
   </div>
 
   <div class="col-md-6 gameweek-info">
@@ -16,23 +16,11 @@
           </tr>
       </thead>
       <tbody>
-          <tr>
-              <td>Arsenal</td>
-              <td>Newcastle</td>
-              <td>15:00</td>
-              <td></td>
-          </tr>
-          <tr>
-              <td>Chelsea</td>
-              <td>Manchester City</td>
-              <td>12:00</td>
-              <td>2-2</td>
-          </tr>
-          <tr>
-              <td>Manchester United</td>
-              <td>Sunderland</td>
-              <td>12:00</td>
-              <td>1-0</td>
+          <tr ng-repeat="fixture in fixtureData.fixtures">
+              <td>{{fixture.home}}</td>
+              <td>{{fixture.away}}</td>
+              <td>{{fixture.kickoff_time}}</td>
+              <td>{{fixture.result}}</td>
           </tr>
       </tbody>
   </table>
