@@ -38,6 +38,14 @@ class DataHistoricalFixture extends DataFixture{
         // fucking retarded api have to do this shit...
         if (sizeof($data) == 2) { // fixture played
             $goals = explode("-", $data[1]);
+            if (sizeof($goals) == 1) { // cant set goals since game hasnt been played for the round
+                $this->set_played(0);
+                $this->set_home_goals(NULL);
+                $this->set_away_goals(NULL);
+                return;
+            } else {
+                $this->set_played(1);
+            }
             if ($this->get_home_team() == $team) { // 1-0 home win
                 $this->set_home_goals((int)$goals[0]);
                 $this->set_away_goals((int)$goals[1]);
@@ -45,10 +53,6 @@ class DataHistoricalFixture extends DataFixture{
                 $this->set_home_goals((int)$goals[1]);
                 $this->set_away_goals((int)$goals[0]);
             }
-        }
-        if ($this->get_home_team() == 1 && $this->get_away_team() == 2) {
-            var_dump($opponent);
-            var_dump($this);
         }
     }
 
@@ -60,7 +64,8 @@ class DataHistoricalFixture extends DataFixture{
                 "home_team" => $this->get_home_team(),
                 "away_team" => $this->get_away_team(),
                 "home_goals" => $this->get_home_goals(),
-                "away_goals" => $this->get_away_goals()
+                "away_goals" => $this->get_away_goals(),
+                "played" => $this->get_played()
             ));
         } else {
             parent::save();

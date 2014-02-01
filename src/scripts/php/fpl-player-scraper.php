@@ -31,7 +31,12 @@ function writeData($filename) {
         $data = get_json_by_id($i);
         if (!$data) {
             $failed_count = $failed_count + 1;
-			sleep(30);
+            echo("Failed.. sleeping 30 seconds to restart ");
+            for ($i=1; $i <= 30 ; $i++) {
+                echo("$i..");
+                sleep(1);
+            }
+            echo("\n");
 		} else {
             $failed_count = 0;
             array_push($player_array, $data);

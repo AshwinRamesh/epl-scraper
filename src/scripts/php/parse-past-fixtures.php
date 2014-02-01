@@ -33,8 +33,8 @@ function parse_past_fixtures($data) {
         foreach ($history as $game) {
             $fixture = new DataHistoricalFixture($game, Club::get_club_id($data->team_name));
             $fixture->save();
-            echo("Parsed fixtures for {$data->team_name}");
         }
+        echo("Parsed fixtures for {$data->team_name}\n");
     }
 
 }

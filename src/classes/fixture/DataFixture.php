@@ -7,6 +7,9 @@ include_once(__DIR__."/../../classes/playerfixture/DataPlayerFixture.php");
 class DataFixture extends Fixture {
 
     function __construct($dataArray, $team) {
+        $this->set_home_goals(NULL);
+        $this->set_away_goals(NULL);
+        $this->set_played(0);
         if ($dataArray) {
             $this->parseDataToObject($dataArray, $team);
         }
@@ -47,7 +50,10 @@ class DataFixture extends Fixture {
             "gameweek" => $this->get_round(),
             "kickoff_time" => $this->get_kickoff(),
             "home_team" => $this->get_home_team(),
-            "away_team" => $this->get_away_team()
+            "away_team" => $this->get_away_team(),
+            "home_goals" => $this->get_home_goals(),
+            "away_goals" => $this->get_away_goals(),
+            "played" => ($this->get_played() ? $this->get_played() : 0)
         ));
     }
 

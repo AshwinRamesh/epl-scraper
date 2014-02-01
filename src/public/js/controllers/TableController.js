@@ -1,3 +1,3 @@
-app.controller("MyController", function($scope, $location) {
+app.controller("TableController", function($scope, $location) {
     $scope.message = "Hello Ashwin";
 })
