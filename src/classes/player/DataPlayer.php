@@ -76,8 +76,12 @@ class DataPlayer extends Player {
     public function set_fixtures($fixtures, $player_team) {
         $this->fixtures = array();
         foreach ($fixtures as $fixture) {
-            $f = new DataFixture($fixture, $player_team);
-            array_push($this->fixtures, $f);
+            if ($fixture[0] == "-" || $fixture[2] == "-") {
+                echo("Skipping fixture .. \n");
+            } else {
+                $f = new DataFixture($fixture, $player_team);
+                array_push($this->fixtures, $f);
+            }
         }
     }
 

@@ -28,7 +28,6 @@ class DataHistoricalFixture extends DataFixture{
     function set_opponent($opponent, $team) {
         $data = explode(" ", $opponent);
         $opp = explode("(", $data[0]);
-        var_dump($opp);
         if (strpos($opp[1], "H") !== false) { // home game
             $this->set_home_team($team);
             $this->set_away_team(Club::get_club_id_by_short($opp[0]));
@@ -36,10 +35,20 @@ class DataHistoricalFixture extends DataFixture{
             $this->set_home_team(Club::get_club_id_by_short($opp[0]));
             $this->set_away_team($team);
         }
+        // fucking retarded api have to do this shit...
         if (sizeof($data) == 2) { // fixture played
             $goals = explode("-", $data[1]);
-            $this->set_home_goals((int)$goals[0]);
-            $this->set_away_goals((int)$goals[1]);
+            if ($this->get_home_team() == $team) { // 1-0 home win
+                $this->set_home_goals((int)$goals[0]);
+                $this->set_away_goals((int)$goals[1]);
+            } else { //0-1 away loss
+                $this->set_home_goals((int)$goals[1]);
+                $this->set_away_goals((int)$goals[0]);
+            }
+        }
+        if ($this->get_home_team() == 1 && $this->get_away_team() == 2) {
+            var_dump($opponent);
+            var_dump($this);
         }
     }
 

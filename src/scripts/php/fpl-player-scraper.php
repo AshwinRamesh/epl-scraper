@@ -31,7 +31,8 @@ function writeData($filename) {
         $data = get_json_by_id($i);
         if (!$data) {
             $failed_count = $failed_count + 1;
-        } else {
+			sleep(30);
+		} else {
             $failed_count = 0;
             array_push($player_array, $data);
             echo("Processed id $i\n");

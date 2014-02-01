@@ -29,7 +29,6 @@ function parse_past_fixtures($data) {
         42525, // Henderson
     );
     if (in_array((int)$data->code, $players)) {
-        echo("WORKS");
         $history = $data->fixture_history->all;
         foreach ($history as $game) {
             $fixture = new DataHistoricalFixture($game, Club::get_club_id($data->team_name));
