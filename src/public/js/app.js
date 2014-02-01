@@ -5,7 +5,7 @@ app.config(function($routeProvider) {
 
     $routeProvider.when('/', {
         templateUrl: 'views/index.html',
-        controller: 'MyController'
+        controller: 'FixtureController'
     });
 
     $routeProvider.when('/topXI', {
