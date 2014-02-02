@@ -67,11 +67,11 @@ The data in the database is scraped using a personal Object Oriented scraper. (s
 
 ## Current Feature Screenshots
 
-![Home Page Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/home.png "Home sweet home!")
+![Home Page Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/home.png?raw=true)
 
-![Standings Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/standings.png "Standings")
+![Standings Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/standings.png?raw=true)
 
-![Search Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/search.png "Search")
+![Search Screenshot](https://github.com/AshwinRamesh/epl-scraper/blob/master/screenshots/search.png?raw=true)
 
 ## Acknowledgements
 
