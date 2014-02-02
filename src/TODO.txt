@@ -1,7 +1,0 @@
-- Change everything to OOP
-- take into account players moving between clubs
-- Write Player data to db
-- Parse and write fixtures properly
-- Parse table from espn correctly and write to db
-- Frontend
-
