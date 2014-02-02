@@ -65,6 +65,14 @@ The data in the database is scraped using a personal Object Oriented scraper. (s
 7. Formatting data provided (dates mainly)
 8. Pagination on search
 
+## Current Feature Screenshots
+
+![Home Page Screenshot](https://github.com/AshwinRamesh/epl-scraper/screenshots/home.png "Home sweet home!")
+
+![Standings Screenshot](https://github.com/AshwinRamesh/epl-scraper/screenshots/standings.png "Standings")
+
+![Search Screenshot](https://github.com/AshwinRamesh/epl-scraper/screenshots/search.png "Search")
+
 ## Acknowledgements
 
 The data used for this application is being sources from the fantasy.premierleague.com website.
