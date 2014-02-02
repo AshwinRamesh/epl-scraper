@@ -7,8 +7,8 @@ function writeDataToDB($datafile) {
     $f = fopen($datafile, "r");
     $data = fread($f, filesize($datafile));
     $data = json_decode($data);
+    parse_past_fixtures($data);
     foreach ($data as $player_data) {
-        parse_past_fixtures($player_data);
         $player = new DataPlayer($player_data);
         $player->save();
     }

@@ -2,7 +2,7 @@
     require_once(__DIR__."/../../config/config.php");
     $resultArray = array();
 
-    $gameweek = DB::queryFirstRow("select gameweek from fixture where fixture.played = 0 order by gameweek asc limit 1;");
+    $gameweek = DB::queryFirstRow("select gameweek from fixture where fixture.played = 0 AND gameweek != 0 order by gameweek asc limit 1;");
 
     if (!$gameweek) { // season is finished
         $gameweek = 38; // last round of fixtures

@@ -1,1 +1,27 @@
-{{message}}
+<div class="row epl-standings-table">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>English Premier League Standings</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Club</th>
+                <th>Games Played</th>
+                <th>Wins</th>
+                <th>Draws</th>
+                <th>Losses</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="club in table | orderBy:predicate:reverse">
+                <td>{{club.name}}</td>
+                <td>{{club.games}}</td>
+                <td>{{club.win}}</td>
+                <td>{{club.draw}}</td>
+                <td>{{club.lose}}</td>
+                <td>{{club.points}}</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

@@ -23,6 +23,7 @@ body {
   background-color: #f5f5f5;
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 /* Custom page CSS
 -------------------------------------------------- */
@@ -59,6 +60,10 @@ code {
   font-size: 60px;
 }
 
-.gameweek-info table {
+table {
   margin-top: 15px;
+}
+
+.epl-standings-table h1 {
+  text-align: center;
 }

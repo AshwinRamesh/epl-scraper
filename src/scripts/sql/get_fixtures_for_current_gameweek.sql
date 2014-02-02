@@ -1,4 +1,4 @@
-select fixture.gameweek from fixture where fixture.played = 0 order by gameweek asc limit 1; -- get current gameweek
+select fixture.gameweek from fixture where fixture.played = 0 AND gameweek != 0 order by gameweek asc limit 1; -- get current gameweek
 
 select fixture.*, c1.name as home, c2.name as away from fixture
     join club as c1 on c1.id = fixture.home_team
