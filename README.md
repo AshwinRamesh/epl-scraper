@@ -61,6 +61,8 @@ The data in the database is scraped using a personal Object Oriented scraper. (s
 3. Security. This is very MVP at the moment. I need to look into this more soon!
 4. Refactor my Angular JS parts. I'm still learning it. Not sure with best practices!
 5. Better design (who knows when this will happen....)
+6. Caching datasets
+7. Formatting data provided (dates mainly)
 
 ## Acknowledgements
 

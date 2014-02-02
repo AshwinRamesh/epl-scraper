@@ -28,12 +28,12 @@ CREATE TABLE player_status (
   PRIMARY KEY (id)
 );
 
-INSERT INTO player_status (id, status) VALUES ("d", "Doubtful");
-INSERT INTO player_status (id, status) VALUES ("n", "Unlikely");
-INSERT INTO player_status (id, status) VALUES ("i", "Injured");
-INSERT INTO player_status (id, status) VALUES ("u", "Unknown");
-INSERT INTO player_status (id, status) VALUES ("a", "Available");
-INSERT INTO player_status (id, status) VALUES ("s", "Suspended");
+INSERT INTO player_status (status_short, status) VALUES ("d", "Doubtful");
+INSERT INTO player_status (status_short, status) VALUES ("n", "Unlikely");
+INSERT INTO player_status (status_short, status) VALUES ("i", "Injured");
+INSERT INTO player_status (status_short, status) VALUES ("u", "Unknown");
+INSERT INTO player_status (status_short, status) VALUES ("a", "Available");
+INSERT INTO player_status (status_short, status) VALUES ("s", "Suspended");
 
 CREATE TABLE club (
   id INT(3) NOT NULL auto_increment,
@@ -78,7 +78,7 @@ CREATE TABLE player(
   photo_mobile_url VARCHAR(200),
   type INT(3) NOT NULL,
   total_points INT(5) DEFAULT 0,
-  points_per_game INT(3) DEFAULT 0,
+  points_per_game DECIMAL(4,1) DEFAULT 0,
   last_season_points INT(4) DEFAULT 0,
   fpl_added VARCHAR(100),
   PRIMARY KEY (fpl_id),

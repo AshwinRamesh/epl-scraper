@@ -67,3 +67,12 @@ table {
 .epl-standings-table h1 {
   text-align: center;
 }
+
+.search-form {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.search-form .form-group label {
+  font-size: 20px;
+}
