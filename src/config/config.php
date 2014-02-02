@@ -1,9 +1,8 @@
 <?php
 
 /* Config for the website */
-    include_once(__DIR__."/base.php");
-    include_once("$base/lib/MeerkoDB/meerkodb.php"); // database library
-    include_once("$base/classes/player/DataPlayer.php");
+    include_once(__DIR__."/../lib/MeerkoDB/meerkodb.php"); // database library
+    include_once(__DIR__."/../classes/player/DataPlayer.php");
 
     /* Database Library Config */
     DB::$user = 'ashwin';
