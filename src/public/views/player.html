@@ -26,11 +26,11 @@
         <tbody>
             <tr ng-repeat="player in players">
                 <td>{{player.first_name}} {{player.second_name}}</td>
-                <td><a class="btn" ng-click="viewClub(player.club)">{{player.club}}</a></td>
+                <td><a class="hover-pointer" ng-click="viewClub(player.club)">{{player.club}}</a></td>
                 <td>£{{player.cost}}M</td>
                 <td>{{player.total_points}}</td>
                 <td>{{player.in_dreamteam}}</td>
-                <td><button class="btn btn-primary" ng-click="viewPlayer(1)">View</button></td>
+                <td><button class="btn btn-primary" ng-click="viewPlayer(1)">View Profile</button></td>
             </tr>
         </tbody>
     </table>

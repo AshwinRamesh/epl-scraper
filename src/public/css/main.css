@@ -76,3 +76,7 @@ table {
 .search-form .form-group label {
   font-size: 20px;
 }
+
+.hover-pointer {
+  cursor: pointer;
+}

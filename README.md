@@ -63,6 +63,7 @@ The data in the database is scraped using a personal Object Oriented scraper. (s
 5. Better design (who knows when this will happen....)
 6. Caching datasets
 7. Formatting data provided (dates mainly)
+8. Pagination on search
 
 ## Acknowledgements
 
